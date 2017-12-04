@@ -1,0 +1,7 @@
+测试应用的app key: 8354aa2bfec3f70a6ab851ac51e894df
+同时建了im账号: icbctest1 icbctest2 密码都是abc123
+@Samel 先简单描述下流程，让你看网易文档时有的放矢：首先用户登陆，app向我们的后台发登陆请求，我们后台校验用户密码，返回网易im的token，app使用这token登陆网易IM(SDk client)。然后，用户在app输入客户证件号，app将客户证件号发送到我们后台服务，我们后台返回接听工作人员的网易用户ID，app通过网易IM SDK向该ID发起视频通话(需附上当前手机的GPS位置信息). 流程就这样了。后续的视频录制等功能，app不用管，都是我们这边后台做的事情。
+
+13828405525@139.com
+
+https://netease.im/im-sdk-demo?solutionType=0#solution
