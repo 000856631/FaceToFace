@@ -1,5 +1,21 @@
 PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
   - Masonry (1.0.2)
+  - pop (1.0.10)
   - RealReachability (1.1.9):
     - RealReachability/Connection (= 1.1.9)
     - RealReachability/Ping (= 1.1.9)
@@ -18,7 +34,9 @@ PODS:
     - YYImage
 
 DEPENDENCIES:
+  - AFNetworking (~> 3.0)
   - Masonry (~> 1.0.2)
+  - pop (~> 1.0.9)
   - RealReachability (~> 1.1.9)
   - SVProgressHUD (~> 2.1.2)
   - YYKeyboardManager (~> 1.0.1)
@@ -27,7 +45,9 @@ DEPENDENCIES:
   - YYWebImage (~> 1.0.5)
 
 SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
   RealReachability: a8c483900986a0f3305733961effbfbb00637a02
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
@@ -37,6 +57,6 @@ SPEC CHECKSUMS:
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
   YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: 8101017b635f2c8fc7b2a7e0f641ff6e15e15eb1
+PODFILE CHECKSUM: f46b6c77954c4c1fee413cacffb492f3c7d602b8
 
 COCOAPODS: 1.2.1
