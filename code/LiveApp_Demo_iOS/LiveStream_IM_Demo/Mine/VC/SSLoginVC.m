@@ -11,6 +11,7 @@
 #import "ConstantMacro.h"
 @interface SSLoginVC ()
 @property(nonatomic,strong) UIImageView *backGroundView;
+
 @end
 
 @implementation SSLoginVC
@@ -18,17 +19,22 @@
 {
     if (_backGroundView == nil) {
         _backGroundView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, APP_SCREEN_WIDTH, APP_SCREEN_HEIGHT)];
-        _backGroundView.image = [UIImage imageNamed:@"login_bg"];
+        UIImage *backImage = [UIImage imageNamed:@"bg_denglu.png"];
+        _backGroundView.image = backImage;
     }
     return _backGroundView;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[UIColor blueColor]];
+//    [self.view setBackgroundColor:[UIColor blueColor]];
     [self.view addSubview:self.backGroundView];
     // Do any additional setup after loading the view.
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController.navigationBar setHidden:YES];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

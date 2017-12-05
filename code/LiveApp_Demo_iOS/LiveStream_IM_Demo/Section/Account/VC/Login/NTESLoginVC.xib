@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,8 +15,6 @@
             <connections>
                 <outlet property="constraint_imgTop" destination="DWU-a7-tIK" id="F0N-iT-CAP"/>
                 <outlet property="constraint_inputTop" destination="qk1-h8-Z7Q" id="BgN-N9-sZB"/>
-                <outlet property="constraint_loginTop" destination="kn1-Le-R1Q" id="Ycz-Xe-GA0"/>
-                <outlet property="enterBtn" destination="0RD-Vx-9b4" id="Vbh-wB-2vw"/>
                 <outlet property="iconImg" destination="sR5-MB-a2U" id="Paj-oV-SvV"/>
                 <outlet property="inputContainerView" destination="9vV-Is-1YM" id="8B9-mU-QAa"/>
                 <outlet property="logoImg" destination="D4J-8S-Cw6" id="byv-mE-jpx"/>
@@ -112,67 +110,29 @@
                         <constraint firstAttribute="width" secondItem="D4J-8S-Cw6" secondAttribute="height" multiplier="1:1" id="vJp-sV-hby"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0RD-Vx-9b4">
-                    <rect key="frame" x="20" y="457" width="335" height="45"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <state key="normal" title="登录">
-                        <color key="titleColor" red="0.15446865558624268" green="0.63464325666427612" blue="0.95735079050064087" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <state key="highlighted">
-                        <color key="titleColor" red="0.15446865558624268" green="0.63464325666427612" blue="0.95735079050064087" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="10"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="loginAction:" destination="-1" eventType="touchUpInside" id="H7g-kC-VQX"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kwk-0Q-la5">
-                    <rect key="frame" x="136" y="462" width="120" height="40"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="120" id="hoQ-NS-G4k"/>
-                        <constraint firstAttribute="height" constant="40" id="iDK-xS-q3w"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <state key="normal" title="快速注册 &gt;">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="goRegistAction:" destination="-1" eventType="touchUpInside" id="MBv-lv-Wxz"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="9vV-Is-1YM" secondAttribute="trailing" id="7cX-63-4qk"/>
                 <constraint firstItem="9vV-Is-1YM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="B7m-vw-YXp"/>
-                <constraint firstItem="0RD-Vx-9b4" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="45:667" id="BLG-ai-Rhl"/>
                 <constraint firstAttribute="bottom" secondItem="4JN-6H-uiX" secondAttribute="bottom" id="CIg-IF-zTb"/>
                 <constraint firstItem="D4J-8S-Cw6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="120" id="DWU-a7-tIK"/>
                 <constraint firstItem="D4J-8S-Cw6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="EpU-GH-oL1"/>
                 <constraint firstItem="D4J-8S-Cw6" firstAttribute="height" secondItem="4JN-6H-uiX" secondAttribute="height" multiplier="63:667" id="Fyx-zZ-c6T"/>
-                <constraint firstItem="Kwk-0Q-la5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="KFA-Uy-gSg"/>
                 <constraint firstAttribute="trailing" secondItem="4JN-6H-uiX" secondAttribute="trailing" id="SbE-rY-YQl"/>
                 <constraint firstItem="4JN-6H-uiX" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="VIk-4I-Czc"/>
                 <constraint firstItem="4JN-6H-uiX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="apF-Tv-8v6"/>
-                <constraint firstAttribute="bottom" secondItem="Kwk-0Q-la5" secondAttribute="bottom" constant="105" id="f6q-lm-GWB"/>
-                <constraint firstItem="0RD-Vx-9b4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="fwM-sh-QuS"/>
-                <constraint firstItem="0RD-Vx-9b4" firstAttribute="top" secondItem="9vV-Is-1YM" secondAttribute="bottom" constant="50" id="kn1-Le-R1Q"/>
                 <constraint firstItem="9vV-Is-1YM" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="150:667" id="mvz-Yo-kB1"/>
                 <constraint firstItem="9vV-Is-1YM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="257" id="qk1-h8-Z7Q"/>
-                <constraint firstAttribute="trailing" secondItem="0RD-Vx-9b4" secondAttribute="trailing" constant="20" id="uAU-pk-r3g"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-            <point key="canvasLocation" x="47" y="156"/>
+            <point key="canvasLocation" x="46.5" y="155.5"/>
         </view>
     </objects>
     <resources>
         <image name="bg_denglu" width="640" height="1136"/>
         <image name="icon_mima_" width="22" height="22"/>
         <image name="icon_yonghuming_" width="22" height="22"/>
-        <image name="logo1" width="126" height="126"/>
+        <image name="logo1" width="118" height="118"/>
     </resources>
 </document>

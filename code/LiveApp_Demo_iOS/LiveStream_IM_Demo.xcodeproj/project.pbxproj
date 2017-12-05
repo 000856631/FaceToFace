@@ -379,21 +379,6 @@
 		905860FD1FD54573005FADF2 /* PureLayout+Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PureLayout+Internal.h"; sourceTree = "<group>"; };
 		905860FE1FD54573005FADF2 /* PureLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PureLayout.h; sourceTree = "<group>"; };
 		905860FF1FD54573005FADF2 /* PureLayoutDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PureLayoutDefines.h; sourceTree = "<group>"; };
-		905861021FD546EA005FADF2 /* about_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = about_logo.png; sourceTree = "<group>"; };
-		905861031FD546EA005FADF2 /* actionbar_dark_logo_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = actionbar_dark_logo_icon.png; sourceTree = "<group>"; };
-		905861041FD546EA005FADF2 /* actionbar_white_logo_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = actionbar_white_logo_icon.png; sourceTree = "<group>"; };
-		905861051FD546EA005FADF2 /* ic_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_logo.png; sourceTree = "<group>"; };
-		905861061FD546EA005FADF2 /* login_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_bg.png; sourceTree = "<group>"; };
-		905861071FD546EA005FADF2 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
-		905861081FD546EA005FADF2 /* welcome_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_bg.png; sourceTree = "<group>"; };
-		9058610A1FD546EA005FADF2 /* ic_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_logo.png; sourceTree = "<group>"; };
-		9058610C1FD546EA005FADF2 /* about_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = about_logo.png; sourceTree = "<group>"; };
-		9058610D1FD546EA005FADF2 /* actionbar_dark_logo_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = actionbar_dark_logo_icon.png; sourceTree = "<group>"; };
-		9058610E1FD546EA005FADF2 /* actionbar_white_logo_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = actionbar_white_logo_icon.png; sourceTree = "<group>"; };
-		9058610F1FD546EA005FADF2 /* ic_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_logo.png; sourceTree = "<group>"; };
-		905861101FD546EA005FADF2 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
-		905861111FD546EA005FADF2 /* welcome_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_bg.png; sourceTree = "<group>"; };
-		905861131FD546EA005FADF2 /* ic_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_logo.png; sourceTree = "<group>"; };
 		90D0700C1FD5413F00080A59 /* SSLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSLoginVC.h; sourceTree = "<group>"; };
 		90D0700D1FD5413F00080A59 /* SSLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSLoginVC.m; sourceTree = "<group>"; };
 		90D0700F1FD541FA00080A59 /* SSAppointmentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSAppointmentVC.h; sourceTree = "<group>"; };
@@ -1281,60 +1266,6 @@
 				905860FF1FD54573005FADF2 /* PureLayoutDefines.h */,
 			);
 			path = PureLayout;
-			sourceTree = "<group>";
-		};
-		905861001FD546EA005FADF2 /* ImageSource */ = {
-			isa = PBXGroup;
-			children = (
-				905861011FD546EA005FADF2 /* drawable-hdpi */,
-				905861091FD546EA005FADF2 /* drawable-mdpi */,
-				9058610B1FD546EA005FADF2 /* drawable-xhdpi */,
-				905861121FD546EA005FADF2 /* drawable-xxhdpi */,
-			);
-			path = ImageSource;
-			sourceTree = "<group>";
-		};
-		905861011FD546EA005FADF2 /* drawable-hdpi */ = {
-			isa = PBXGroup;
-			children = (
-				905861021FD546EA005FADF2 /* about_logo.png */,
-				905861031FD546EA005FADF2 /* actionbar_dark_logo_icon.png */,
-				905861041FD546EA005FADF2 /* actionbar_white_logo_icon.png */,
-				905861051FD546EA005FADF2 /* ic_logo.png */,
-				905861061FD546EA005FADF2 /* login_bg.png */,
-				905861071FD546EA005FADF2 /* logo.png */,
-				905861081FD546EA005FADF2 /* welcome_bg.png */,
-			);
-			path = "drawable-hdpi";
-			sourceTree = "<group>";
-		};
-		905861091FD546EA005FADF2 /* drawable-mdpi */ = {
-			isa = PBXGroup;
-			children = (
-				9058610A1FD546EA005FADF2 /* ic_logo.png */,
-			);
-			path = "drawable-mdpi";
-			sourceTree = "<group>";
-		};
-		9058610B1FD546EA005FADF2 /* drawable-xhdpi */ = {
-			isa = PBXGroup;
-			children = (
-				9058610C1FD546EA005FADF2 /* about_logo.png */,
-				9058610D1FD546EA005FADF2 /* actionbar_dark_logo_icon.png */,
-				9058610E1FD546EA005FADF2 /* actionbar_white_logo_icon.png */,
-				9058610F1FD546EA005FADF2 /* ic_logo.png */,
-				905861101FD546EA005FADF2 /* logo.png */,
-				905861111FD546EA005FADF2 /* welcome_bg.png */,
-			);
-			path = "drawable-xhdpi";
-			sourceTree = "<group>";
-		};
-		905861121FD546EA005FADF2 /* drawable-xxhdpi */ = {
-			isa = PBXGroup;
-			children = (
-				905861131FD546EA005FADF2 /* ic_logo.png */,
-			);
-			path = "drawable-xxhdpi";
 			sourceTree = "<group>";
 		};
 		90D070071FD540CA00080A59 /* Mine */ = {
@@ -2705,7 +2636,6 @@
 		E69E2FD51E0D242A00C26A01 /* LiveStream_IM_Demo */ = {
 			isa = PBXGroup;
 			children = (
-				905861001FD546EA005FADF2 /* ImageSource */,
 				905860F11FD54573005FADF2 /* Common */,
 				90D070071FD540CA00080A59 /* Mine */,
 				E69E2FD91E0D242A00C26A01 /* AppDelegate.h */,
@@ -3659,9 +3589,10 @@
 			baseConfigurationReference = 2A73EAD16D1B03C6F4C626F9 /* Pods-LiveStream_IM_Demo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 96677F4VYZ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3701,9 +3632,10 @@
 			baseConfigurationReference = 680145675233E667E6E67836 /* Pods-LiveStream_IM_Demo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 96677F4VYZ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

@@ -12,7 +12,6 @@
 #import "UIButton+Captcha.h"
 #import "NTESRegisterVCViewController.h"
 #import "NTESEncryption.h"
-
 #define kUserName @"userName"
 #define kUserPassword @"userPassward"
 #define KisRememberPwd @"isRememberPwd"
@@ -34,6 +33,12 @@
 @property(nonatomic, strong) UITextField *mobileTextField;
 @property(nonatomic, strong) UITextField *veirifyTextField;
 
+//自己手动敲了，受不了xib
+@property (strong, nonatomic)  UILabel *middleName;
+@property (strong, nonatomic)  UILabel *smallName;
+@property (strong, nonatomic)  UIImageView *smallImage;
+@property (strong, nonatomic)  UIButton *doneButton;
+
 //切换账号视图，手机验证码登录方式
 @property(nonatomic, strong) UIButton *mobileBtn;
 
@@ -52,10 +57,39 @@
 - (BOOL)isNaviBarVisible {
     return NO;
 }
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    _doneButton = ({
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setTitle:@"完成" forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor colorWithRed:191.0/255 green:51.0/255 blue:62.0/255 alpha:1] forState:UIControlStateNormal];
+        button.titleLabel.font = [UIFont systemFontOfSize:13];
+        [button setBackgroundColor:[UIColor colorWithRed:218.0/255 green:206.0/255 blue:206.0/255 alpha:1]];
+        button.layer.cornerRadius = 5;
+        button;
+    });
+    _middleName = ({
+        UILabel *label = [[UILabel alloc]init];
+        label.text = @"广东工行签约在线";
+        label.textAlignment = NSTextAlignmentCenter;
+        label.textColor = [UIColor whiteColor];
+        label.font = [UIFont systemFontOfSize:20];
+        label.centerX = self.view.centerX;
+        label;
+    });
+    _smallName = ({
+        UILabel *label = [[UILabel alloc]init];
+        label.text = @"登录";
+        label.textAlignment = NSTextAlignmentCenter;
+        label.textColor = [UIColor whiteColor];
+        label.font = [UIFont systemFontOfSize:13];
+        label;
+    });
+    _smallImage = ({
+        UIImageView *imageView = [[UIImageView alloc]init];
+        imageView.image = [UIImage imageNamed:@"logo1"];
+        imageView;
+    });
     _loginLabel = ({
         UILabel *label = [[UILabel alloc] init];
         label.text = @"- - - - -手机验证码登录- - - - -";
@@ -132,17 +166,22 @@
     });
     
     [@[_loginLabel,
+       _doneButton,
+       _smallImage,
+       _smallName,
        _mobileBtn,
        _checklistBtn,
        _captchaButton,
        _userBtn,
        _mobileTextField,
-       _veirifyTextField]enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL * _Nonnull stop) {
+       _veirifyTextField,
+       _middleName]enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL * _Nonnull stop) {
            [self.view addSubview:view];
        }];
     
     [self.view bringSubviewToFront:self.captchaButton];
     
+    [self.view addSubview:self.middleName];
     [self setupConstraints];
     
     //登录按钮
@@ -199,6 +238,12 @@
 }
 
 - (void)setupConstraints {
+    [self.doneButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.view.mas_right).offset(-10);
+        make.top.equalTo(self.view.mas_top).offset(30);
+        make.width.equalTo(@50);
+        make.height.equalTo(@20);
+    }];
     [self.checklistBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.passwordTextField.mas_bottom).offset(25);
         make.left.equalTo(self.view.mas_left).offset(27);
@@ -212,7 +257,24 @@
         make.width.equalTo(@200);
         make.height.equalTo(@13);
     }];
-    
+    [self.smallImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).offset(10);
+        make.top.equalTo(self.view.mas_top).offset(30);
+        make.width.equalTo(@20);
+        make.height.equalTo(@20);
+    }];
+    [self.smallName mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).offset(30);
+        make.top.equalTo(self.view.mas_top).offset(30);
+        make.width.equalTo(@50);
+        make.height.equalTo(@20);
+    }];
+    [self.middleName mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view.mas_centerX);
+        make.top.equalTo(self.view.mas_top).offset(230);
+        make.width.equalTo(@200);
+        make.height.equalTo(@23);
+    }];
     [self.mobileBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view.mas_centerX);
         make.width.height.equalTo(@30);
@@ -236,6 +298,8 @@
     [self.veirifyTextField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.passwordTextField);
     }];
+    
+    
 }
 
 
@@ -429,11 +493,13 @@
     {
         adjustDistance = 64.0 + 102.0 * UISreenHeightScale;
         _logoImg.hidden = YES;
+        _middleName.hidden = YES;
     }
     else
     {
         adjustDistance = 257.0 * UISreenHeightScale;
         _logoImg.hidden = NO;
+        _middleName.hidden = NO;
         
     }
     [UIView animateWithDuration:transition.animationDuration animations:^{
