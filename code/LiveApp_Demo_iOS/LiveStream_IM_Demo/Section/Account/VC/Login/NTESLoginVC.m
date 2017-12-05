@@ -97,6 +97,7 @@
         label.textColor = [UIColor whiteColor];
         label.font = [UIFont systemFontOfSize:13];
         label.centerX = self.view.centerX;
+        label.hidden = YES;
         label;
     });
     
@@ -105,6 +106,7 @@
         [btn setImage:[UIImage imageNamed:@"mobileLog_highlighted"] forState:UIControlStateNormal];
         [btn setImage:[UIImage imageNamed:@"mobileLog"] forState:UIControlStateHighlighted];
         [btn addTarget:self action:@selector(goMobileLoginAction:) forControlEvents:UIControlEventTouchUpInside];
+        [btn setHidden:YES];
         btn;
     });
     

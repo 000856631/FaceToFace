@@ -11,6 +11,7 @@
 #import "NTESLoginVC.h"
 #import "NTESAttachDecoder.h"
 #import "SSLoginVC.h"
+#import "SSAppointmentVC.h"
 @implementation AppDelegate
 
 
@@ -79,7 +80,7 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
-    NTESRootNavVC *nav = [[NTESRootNavVC alloc] initWithRootViewController:[NTESLoginVC new]];
+    NTESRootNavVC *nav = [[NTESRootNavVC alloc] initWithRootViewController:[SSAppointmentVC new]];
     self.window.rootViewController = nav;
 }
 

@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,23 +24,12 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="启动页背景.png" translatesAutoresizingMaskIntoConstraints="NO" id="ndn-fe-DP0">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iRq-Nb-Jdp">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="183"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="启动页icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="pQl-EB-bBb">
-                                        <rect key="frame" x="156" y="120" width="63" height="63"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="pQl-EB-bBb" secondAttribute="height" multiplier="1:1" id="A3z-FX-fls"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="pQl-EB-bBb" firstAttribute="centerX" secondItem="iRq-Nb-Jdp" secondAttribute="centerX" id="Ufs-Rx-Tlz"/>
-                                    <constraint firstAttribute="bottom" secondItem="pQl-EB-bBb" secondAttribute="bottom" id="bE7-8b-cnY"/>
-                                    <constraint firstItem="pQl-EB-bBb" firstAttribute="height" secondItem="iRq-Nb-Jdp" secondAttribute="height" multiplier="63:183" id="tss-Ym-WXy"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -63,7 +51,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="启动页icon.png" width="175" height="123"/>
-        <image name="启动页背景.png" width="30" height="1136"/>
+        <image name="启动页背景.png" width="720" height="1280"/>
     </resources>
 </document>

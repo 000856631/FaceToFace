@@ -7,15 +7,74 @@
 //
 
 #import "SSAppointmentVC.h"
-
+#import "PureLayout.h"
+#import "ConstantMacro.h"
 @interface SSAppointmentVC ()
-
+@property(nonatomic,strong) UILabel *redLabel;
+@property(nonatomic,strong) UILabel *smallLabel;
+@property(nonatomic,strong) UIImageView *smallImageView;
+@property(nonatomic,strong) UIImageView *middleImageView;
+@property(nonatomic,strong) UIImageView *userImageView;
+@property(nonatomic,strong) UITextField *usernameTextField;
+@property(nonatomic,strong) UIButton *connectButton;
+@property(nonatomic,assign) BOOL isUpdateConstrains;
 @end
 
 @implementation SSAppointmentVC
-
+-(UILabel*)redLabel
+{
+    if (_redLabel == nil) {
+        _redLabel = [[UILabel alloc]initForAutoLayout ];
+    }
+    return _redLabel;
+}
+-(UILabel*)smallLabel
+{
+    if (_smallLabel == nil) {
+        _smallLabel = [[UILabel alloc]initForAutoLayout];
+    }
+    return _smallLabel;
+}
+-(UIImageView*)smallImageView
+{
+    if (_smallImageView == nil) {
+        _smallImageView = [[UIImageView alloc]initForAutoLayout];
+    }
+    return _smallImageView;
+}
+-(UIImageView*)middleImageView
+{
+    if (_middleImageView == nil) {
+        _middleImageView = [[UIImageView alloc]initForAutoLayout];
+        
+    }
+    return _middleImageView;
+}
+-(UIImageView*)userImageView
+{
+    if (_userImageView == nil) {
+        _userImageView = [[UIImageView alloc]initForAutoLayout];
+    }
+    return _userImageView;
+}
+-(UITextField*)usernameTextField
+{
+    if (_usernameTextField == nil) {
+        _usernameTextField = [[UITextField alloc]initForAutoLayout];
+    }
+    return _usernameTextField;
+}
+-(UIButton*)connectButton
+{
+    if(_connectButton == nil)
+    {
+        _connectButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    }
+    return _connectButton;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     // Do any additional setup after loading the view.
 }
 
