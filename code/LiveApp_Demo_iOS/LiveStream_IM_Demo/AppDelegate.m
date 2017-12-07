@@ -10,7 +10,6 @@
 #import "NTESRootNavVC.h"
 #import "NTESLoginVC.h"
 #import "NTESAttachDecoder.h"
-#import "SSLoginVC.h"
 #import "SSAppointmentVC.h"
 @implementation AppDelegate
 
@@ -18,7 +17,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait animated:YES];
+//    [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait animated:YES];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     //appkey是应用的标识，不同应用之间的数据（用户、消息、群组等）是完全隔离的。
     //如需打网易云信Demo包，请勿修改appkey，开发自己的应用时，请替换为自己的appkey.
     //并请对应更换Demo代码中的获取好友列表、个人信息等网易云信SDK未提供的接口。
