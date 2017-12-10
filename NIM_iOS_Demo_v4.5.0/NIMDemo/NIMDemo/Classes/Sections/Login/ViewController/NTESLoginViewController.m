@@ -20,7 +20,7 @@
 #import "UIActionSheet+NTESBlock.h"
 #import "NTESLogManager.h"
 #import "NTESRegisterViewController.h"
-
+#import "AFNetworking.h"
 @interface NTESLoginViewController ()<NTESRegisterViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *registerButton;
 @property (strong, nonatomic) IBOutlet UITextField *usernameTextField;
