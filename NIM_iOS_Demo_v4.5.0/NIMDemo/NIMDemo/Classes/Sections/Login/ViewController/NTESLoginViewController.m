@@ -21,11 +21,16 @@
 #import "NTESLogManager.h"
 #import "NTESRegisterViewController.h"
 #import "AFNetworking.h"
+#import "Masonry.h"
 @interface NTESLoginViewController ()<NTESRegisterViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *registerButton;
 @property (strong, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (strong, nonatomic) IBOutlet UIImageView *logo;
+@property (strong, nonatomic)  UILabel *middleName;
+@property (strong, nonatomic)  UILabel *smallName;
+@property (strong, nonatomic)  UIImageView *smallImage;
+@property (nonatomic,strong) AFHTTPRequestOperationManager *flowcManager;
 @end
 
 @implementation NTESLoginViewController
@@ -48,6 +53,35 @@
 NTES_USE_CLEAR_BAR
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _middleName = ({
+        UILabel *label = [[UILabel alloc]init];
+        label.text = @"广东工行签约在线";
+        label.textAlignment = NSTextAlignmentCenter;
+        label.textColor = [UIColor whiteColor];
+        label.font = [UIFont systemFontOfSize:20];
+        label.centerX = self.view.centerX;
+        label;
+    });
+    _smallName = ({
+        UILabel *label = [[UILabel alloc]init];
+        label.text = @"登录";
+        label.textAlignment = NSTextAlignmentCenter;
+        label.textColor = [UIColor whiteColor];
+        label.font = [UIFont systemFontOfSize:13];
+        label;
+    });
+    _smallImage = ({
+        UIImageView *imageView = [[UIImageView alloc]init];
+        imageView.image = [UIImage imageNamed:@"logo1"];
+        imageView;
+    });
+    [@[
+       _smallImage,
+       _smallName,
+       _middleName]enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL * _Nonnull stop) {
+           [self.view addSubview:view];
+       }];
+    
     self.usernameTextField.tintColor = [UIColor whiteColor];
     [self.usernameTextField setValue:UIColorFromRGBA(0xffffff, .6f) forKeyPath:@"_placeholderLabel.textColor"];
     self.passwordTextField.tintColor = [UIColor whiteColor];
@@ -60,8 +94,30 @@ NTES_USE_CLEAR_BAR
     [_registerButton setHidden:![[NIMSDK sharedSDK] isUsingDemoAppKey]];
     
     self.navigationItem.rightBarButtonItem.enabled = NO;
+    [self setupConstraints];
 }
-
+- (void)setupConstraints {
+    
+    
+    [self.smallImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).offset(10);
+        make.top.equalTo(self.view.mas_top).offset(30);
+        make.width.equalTo(@20);
+        make.height.equalTo(@20);
+    }];
+    [self.smallName mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).offset(30);
+        make.top.equalTo(self.view.mas_top).offset(30);
+        make.width.equalTo(@50);
+        make.height.equalTo(@20);
+    }];
+    [self.middleName mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view.mas_centerX);
+        make.top.equalTo(self.view.mas_top).offset(170);
+        make.width.equalTo(@200);
+        make.height.equalTo(@23);
+    }];
+}
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self configNav];
@@ -75,7 +131,7 @@ NTES_USE_CLEAR_BAR
     UIButton *loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [loginBtn setTitle:@"完成" forState:UIControlStateNormal];
     loginBtn.titleLabel.font = [UIFont systemFontOfSize:15.f];
-    [loginBtn setTitleColor:UIColorFromRGB(0x2294ff) forState:UIControlStateNormal];
+    [loginBtn setTitleColor:[UIColor colorWithRed:191.0/255 green:51.0/255 blue:62.0/255 alpha:1] forState:UIControlStateNormal];
     
     [loginBtn setBackgroundImage:[UIImage imageNamed:@"login_btn_done_normal"] forState:UIControlStateNormal];
     [loginBtn setBackgroundImage:[UIImage imageNamed:@"login_btn_done_pressed"] forState:UIControlStateHighlighted];
@@ -100,7 +156,7 @@ NTES_USE_CLEAR_BAR
 
 
 
-- (void)doLogin
+- (void)doLogin1
 {
     [_usernameTextField resignFirstResponder];
     [_passwordTextField resignFirstResponder];
@@ -112,12 +168,40 @@ NTES_USE_CLEAR_BAR
     NSString *loginAccount = username;
     NSString *loginToken   = [password tokenByPassword];
     
+    NSMutableDictionary *postParam = [[NSMutableDictionary alloc]init];
+    [postParam setObject:@"1.0.0" forKey:@"appver"];
+    [postParam setObject:@"2" forKey:@"apptype"];
+    [postParam setObject:loginAccount forKey:@"userid"];
+    [postParam setObject:loginToken forKey:@"userpass"];
+    NSString *urlStr = @"http://www.dlczjf.com/gdvrtest/login2.do";
+    [self.flowcManager POST:urlStr parameters:postParam success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSData *data = (NSData*)responseObject;
+        NSDictionary *dit = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        NSLog(@"领取返回的dit = %@",dit);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"postError %@",error);
+    }];
+    
+    
+    
+
+
+}
+-(void)doLogin
+{
+    [_usernameTextField resignFirstResponder];
+    [_passwordTextField resignFirstResponder];
+    
+    NSString *username = [_usernameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSString *password = _passwordTextField.text;
+    [SVProgressHUD show];
+    
+    NSString *loginAccount = username;
+    NSString *loginToken   = [password tokenByPassword];
     //NIM SDK 只提供消息通道，并不依赖用户业务逻辑，开发者需要为每个APP用户指定一个NIM帐号，NIM只负责验证NIM的帐号即可(在服务器端集成)
     //用户APP的帐号体系和 NIM SDK 并没有直接关系
     //DEMO中使用 username 作为 NIM 的account ，md5(password) 作为 token
     //开发者需要根据自己的实际情况配置自身用户系统和 NIM 用户系统的关系
-    
-    
     [[[NIMSDK sharedSDK] loginManager] login:loginAccount
                                        token:loginToken
                                   completion:^(NSError *error) {
@@ -139,10 +223,7 @@ NTES_USE_CLEAR_BAR
                                           [self.view makeToast:toast duration:2.0 position:CSToastPositionCenter];
                                       }
                                   }];
-
-
 }
-
 - (IBAction)onTouchLogin:(id)sender {
     [self doLogin];
 }
@@ -272,5 +353,19 @@ NTES_USE_CLEAR_BAR
 {
     return UIInterfaceOrientationMaskPortrait;
 }
-
+- (AFHTTPRequestOperationManager *)flowcManager
+{
+    if (_flowcManager == nil) {
+        _flowcManager = [AFHTTPRequestOperationManager manager];
+        _flowcManager.responseSerializer = [AFHTTPResponseSerializer serializer];
+        _flowcManager.requestSerializer = [AFJSONRequestSerializer serializer];
+        _flowcManager.requestSerializer.timeoutInterval = 10;
+        NSString *userAgentValue = [NSString stringWithFormat:@"%@ %@ fullversion:%@",@"ICBC",@"ICBC",@"ICBC"];
+        [_flowcManager.requestSerializer setValue:userAgentValue forHTTPHeaderField:@"User-Agent"];
+        
+        
+    }
+    
+    return _flowcManager;
+}
 @end

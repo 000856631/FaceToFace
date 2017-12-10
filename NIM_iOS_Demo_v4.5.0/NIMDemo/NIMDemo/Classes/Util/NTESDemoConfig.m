@@ -27,7 +27,7 @@
 {
     if (self = [super init])
     {
-        _appKey = @"45c6af3c98409b18a84451215d0bdd6e";
+        _appKey = @"8354aa2bfec3f70a6ab851ac51e894df";
         _apiURL = @"https://app.netease.im/api";
         _apnsCername = @"ENTERPRISE";
         _pkCername = @"DEMO_PUSH_KIT";

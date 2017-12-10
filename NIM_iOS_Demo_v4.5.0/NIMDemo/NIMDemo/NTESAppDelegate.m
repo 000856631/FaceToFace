@@ -8,6 +8,7 @@
 
 #import "NTESAppDelegate.h"
 #import "NTESLoginViewController.h"
+#import "SSAppointmentVC.h"
 #import "UIView+Toast.h"
 #import "NTESService.h"
 #import "NTESNotificationCenter.h"
@@ -215,6 +216,7 @@ NSString *NTESNotificationLogout = @"NTESNotificationLogout";
 {
     [self.window.rootViewController dismissViewControllerAnimated:YES completion:nil];
     NTESLoginViewController *loginController = [[NTESLoginViewController alloc] init];
+    SSAppointmentVC *vc = [[SSAppointmentVC alloc]init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginController];
     self.window.rootViewController = nav;
 }

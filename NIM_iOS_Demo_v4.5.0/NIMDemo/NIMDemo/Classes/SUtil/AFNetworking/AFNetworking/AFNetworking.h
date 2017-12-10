@@ -37,5 +37,6 @@
 
     #import "AFURLSessionManager.h"
     #import "AFHTTPSessionManager.h"
+#import "AFHTTPRequestOperationManager.h"
 
 #endif /* _AFNETWORKING_ */

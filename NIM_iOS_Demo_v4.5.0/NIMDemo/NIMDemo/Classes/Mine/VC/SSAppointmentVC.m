@@ -9,6 +9,7 @@
 #import "SSAppointmentVC.h"
 #import "PureLayout.h"
 #import "ConstantMacro.h"
+#import "NTESSettingViewController.h"
 @interface SSAppointmentVC ()
 @property(nonatomic,strong) UILabel *redLabel;
 @property(nonatomic,strong) UILabel *smallLabel;
@@ -17,10 +18,24 @@
 @property(nonatomic,strong) UIImageView *userImageView;
 @property(nonatomic,strong) UITextField *usernameTextField;
 @property(nonatomic,strong) UIButton *connectButton;
+@property(nonatomic,strong) UIButton *moreBtn;
 @property(nonatomic,assign) BOOL isUpdateConstrains;
+
+
 @end
 
 @implementation SSAppointmentVC
+-(UIButton*)moreBtn
+{
+    if (_moreBtn == nil) {
+        _moreBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_moreBtn addTarget:self action:@selector(more:) forControlEvents:UIControlEventTouchUpInside];
+        [_moreBtn setImage:[UIImage imageNamed:@"icon_sessionlist_more_normal"] forState:UIControlStateNormal];
+        [_moreBtn setImage:[UIImage imageNamed:@"icon_sessionlist_more_pressed"] forState:UIControlStateHighlighted];
+        [_moreBtn sizeToFit];
+    }
+    return _moreBtn;
+}
 -(UILabel*)redLabel
 {
     if (_redLabel == nil) {
@@ -96,11 +111,37 @@
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar setHidden:YES];
 }
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+     [self.navigationController.navigationBar setHidden:NO];
+}
+- (void)more:(id)sender
+{
+    UIAlertController *vc = [UIAlertController alertControllerWithTitle:nil
+                                                                message:nil
+                                                         preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *markAllMessagesReadAction = [UIAlertAction actionWithTitle:@"个人设置"
+                                                                        style:UIAlertActionStyleDefault
+                                                                      handler:^(UIAlertAction * _Nonnull action) {
+                                                                          NTESSettingViewController *vc = [[NTESSettingViewController alloc]init];
+                                                                          [self.navigationController pushViewController:vc animated:YES];
+                                                                      }];
+    [vc addAction:markAllMessagesReadAction];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消"
+                                                     style:UIAlertActionStyleCancel
+                                                   handler:nil];
+    [vc addAction:cancel];
+    
+    [self presentViewController:vc animated:YES completion:nil];
+}
 -(void)updateViewConstraints
 {
     [super updateViewConstraints];
     if (!_isUpdateConstrains) {
-        [@[self.redLabel,self.smallImageView,self.smallLabel,self.middleImageView,self.userImageView,self.usernameTextField,self.connectButton]enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL * _Nonnull stop) {
+        [@[self.redLabel,self.smallImageView,self.smallLabel,self.middleImageView,self.userImageView,self.usernameTextField,self.connectButton,self.moreBtn]enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL * _Nonnull stop) {
             [self.view addSubview:view];
         }];
         [self.redLabel autoSetDimension:ALDimensionWidth toSize:APP_CONTENT_WIDTH];
@@ -115,6 +156,8 @@
         [self.smallLabel autoSetDimension:ALDimensionHeight toSize:20];
         [self.smallLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:50];
         [self.smallLabel autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:30];
+        [self.moreBtn autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:30];
+        [self.moreBtn autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:10];
         [self.middleImageView autoAlignAxisToSuperviewAxis:ALAxisVertical];
         [self.middleImageView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:120];
         [self.userImageView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:20];
