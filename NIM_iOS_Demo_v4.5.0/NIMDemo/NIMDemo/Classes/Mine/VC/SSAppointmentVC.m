@@ -10,6 +10,8 @@
 #import "PureLayout.h"
 #import "ConstantMacro.h"
 #import "NTESSettingViewController.h"
+#import "AFNetworking.h"
+#import "SVProgressHUD.h"
 @interface SSAppointmentVC ()
 @property(nonatomic,strong) UILabel *redLabel;
 @property(nonatomic,strong) UILabel *smallLabel;
@@ -20,6 +22,7 @@
 @property(nonatomic,strong) UIButton *connectButton;
 @property(nonatomic,strong) UIButton *moreBtn;
 @property(nonatomic,assign) BOOL isUpdateConstrains;
+@property (nonatomic,strong) AFHTTPRequestOperationManager *flowcManager;
 
 
 @end
@@ -96,9 +99,41 @@
         _connectButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_connectButton setTitle:@"请求通话" forState:UIControlStateNormal];
         [_connectButton setBackgroundColor:[UIColor colorWithRed:221.0f/255 green:88.0f/255 blue:102.0f/255 alpha:1]];
+        [_connectButton addTarget:self action:@selector(beginConnect) forControlEvents:UIControlEventTouchUpInside];
         _connectButton.layer.cornerRadius = 5.0f;
     }
     return _connectButton;
+}
+-(void)beginConnect
+{
+    [SVProgressHUD show];
+    NSMutableDictionary *postParam = [[NSMutableDictionary alloc]init];
+    NSString *idnumber = _usernameTextField.text;
+    NSString *imuserid = [[NSUserDefaults standardUserDefaults]objectForKey:@"imuserid"];
+    NSString *imtk = [[NSUserDefaults standardUserDefaults]objectForKey:@"imtk"];
+    NSString *gdsessionid = [[NSUserDefaults standardUserDefaults]objectForKey:@"gdsessionid"];
+    [postParam setObject:@"1.0.0" forKey:@"appver"];
+    [postParam setObject:@"2" forKey:@"apptype"];
+    [postParam setObject:imuserid forKey:@"userid"];
+    [postParam setObject:gdsessionid forKey:@"gdsessionid"];
+    [postParam setObject:imtk forKey:@"imtk"];
+    [postParam setObject:idnumber forKey:@"idnumber"];
+    NSString *urlStr = @"http://www.dlczjf.com/gdvrtest/fetchRecevier2.do";
+    [self.flowcManager POST:urlStr parameters:postParam success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSData *data = (NSData*)responseObject;
+        NSDictionary *dit = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        NSLog(@"领取返回的dit = %@",dit);
+        //        dit = {
+        //            gdsessionid = 5eLwLMspMA5sU6UEIGDJarfMyJ8T3Qjh;
+        //            imtk = 5b41c20851092d1f40890777e4f5a1b8;
+        //            imuserid = 13711111111;
+        //            retcode = 00000;
+        //            retmsg = "";
+        [SVProgressHUD dismiss];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"postError %@",error);
+        [SVProgressHUD dismiss];
+    }];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -188,5 +223,19 @@
     // Pass the selected object to the new view controller.
 }
 */
-
+- (AFHTTPRequestOperationManager *)flowcManager
+{
+    if (_flowcManager == nil) {
+        _flowcManager = [AFHTTPRequestOperationManager manager];
+        _flowcManager.responseSerializer = [AFHTTPResponseSerializer serializer];
+        _flowcManager.requestSerializer = [AFJSONRequestSerializer serializer];
+        _flowcManager.requestSerializer.timeoutInterval = 10;
+        NSString *userAgentValue = [NSString stringWithFormat:@"%@ %@ fullversion:%@",@"ICBC",@"ICBC",@"ICBC"];
+        [_flowcManager.requestSerializer setValue:userAgentValue forHTTPHeaderField:@"User-Agent"];
+        
+        
+    }
+    
+    return _flowcManager;
+}
 @end

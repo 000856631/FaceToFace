@@ -22,6 +22,7 @@
 #import "NTESRegisterViewController.h"
 #import "AFNetworking.h"
 #import "Masonry.h"
+#import "SSAppointmentVC.h"
 @interface NTESLoginViewController ()<NTESRegisterViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *registerButton;
 @property (strong, nonatomic) IBOutlet UITextField *usernameTextField;
@@ -156,7 +157,7 @@ NTES_USE_CLEAR_BAR
 
 
 
-- (void)doLogin1
+- (void)doLogin
 {
     [_usernameTextField resignFirstResponder];
     [_passwordTextField resignFirstResponder];
@@ -178,8 +179,42 @@ NTES_USE_CLEAR_BAR
         NSData *data = (NSData*)responseObject;
         NSDictionary *dit = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         NSLog(@"领取返回的dit = %@",dit);
+//        dit = {
+//            gdsessionid = 5eLwLMspMA5sU6UEIGDJarfMyJ8T3Qjh;
+//            imtk = 5b41c20851092d1f40890777e4f5a1b8;
+//            imuserid = 13711111111;
+//            retcode = 00000;
+//            retmsg = "";
+        NSString *gdsessionid = [dit objectForKey:@"gdsessionid"];
+        NSString *imtk = [dit objectForKey:@"imtk"];
+        NSString *imuserid = [dit objectForKey:@"imuserid"];
+        [[NSUserDefaults standardUserDefaults]setObject:gdsessionid forKey:@"gdsessionid"];
+        [[NSUserDefaults standardUserDefaults]setObject:imtk forKey:@"imtk"];
+        [[NSUserDefaults standardUserDefaults]setObject:imuserid forKey:@"imuserid"];
+        [[[NIMSDK sharedSDK] loginManager] login:[dit objectForKey:@"imuserid"]  token:[dit objectForKey:@"imtk"] completion:^(NSError * _Nullable error) {
+            [SVProgressHUD dismiss];
+            if (error == nil)
+            {
+                LoginData *sdkData = [[LoginData alloc] init];
+                sdkData.account   = [dit objectForKey:@"imuserid"];
+                sdkData.token     = [dit objectForKey:@"imtk"];
+                [[NTESLoginManager sharedManager] setCurrentLoginData:sdkData];
+                
+                [[NTESServiceManager sharedManager] start];
+                SSAppointmentVC * vc = [[SSAppointmentVC alloc] init];
+                UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
+                [UIApplication sharedApplication].keyWindow.rootViewController = nav;
+            }
+            else
+            {
+                NSString *toast = [NSString stringWithFormat:@"登录失败 code: %zd",error.code];
+                [self.view makeToast:toast duration:2.0 position:CSToastPositionCenter];
+            }
+        }];
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"postError %@",error);
+        [SVProgressHUD dismiss];
     }];
     
     
@@ -187,7 +222,7 @@ NTES_USE_CLEAR_BAR
 
 
 }
--(void)doLogin
+-(void)doLogin1
 {
     [_usernameTextField resignFirstResponder];
     [_passwordTextField resignFirstResponder];
