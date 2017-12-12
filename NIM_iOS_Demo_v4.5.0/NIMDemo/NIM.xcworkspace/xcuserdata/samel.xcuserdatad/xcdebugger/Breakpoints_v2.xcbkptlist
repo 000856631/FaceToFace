@@ -10,12 +10,92 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NIMDemo/NTESAppDelegate.m"
-            timestampString = "534588061.059762"
+            timestampString = "534735617.820975"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "46"
             endingLineNumber = "46"
             landmarkName = "-application:didFinishLaunchingWithOptions:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NIMDemo/NTESAppDelegate.m"
+            timestampString = "534735617.821048"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
+            landmarkName = "-setupMainViewController"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NIMDemo/Classes/Mine/VC/SSAppointmentVC.m"
+            timestampString = "534735660.533772"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "-beginConnect"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[SSAppointmentVC beginConnect]"
+                  moduleName = "NIM"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samel/Documents/SSCode/%E4%B8%9A%E4%BD%99%E9%A1%B9%E7%9B%AE/FaceToFace/NIM_iOS_Demo_v4.5.0/NIMDemo/NIMDemo/Classes/Mine/VC/SSAppointmentVC.m"
+                  timestampString = "534735660.745947"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
+                  offsetFromSymbolStart = "702">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__31-[SSAppointmentVC beginConnect]_block_invoke"
+                  moduleName = "NIM"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samel/Documents/SSCode/%E4%B8%9A%E4%BD%99%E9%A1%B9%E7%9B%AE/FaceToFace/NIM_iOS_Demo_v4.5.0/NIMDemo/NIMDemo/Classes/Mine/VC/SSAppointmentVC.m"
+                  timestampString = "534735660.748267"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "126"
+                  endingLineNumber = "126"
+                  offsetFromSymbolStart = "69">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NIMDemo/Classes/Mine/VC/SSAppointmentVC.m"
+            timestampString = "534735690.13628"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "-beginConnect"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

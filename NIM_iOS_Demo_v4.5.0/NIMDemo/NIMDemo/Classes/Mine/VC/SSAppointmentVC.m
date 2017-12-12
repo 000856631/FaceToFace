@@ -108,7 +108,9 @@
 {
     [SVProgressHUD show];
     NSMutableDictionary *postParam = [[NSMutableDictionary alloc]init];
+    _usernameTextField.text = @"44150908198005231231";
     NSString *idnumber = _usernameTextField.text;
+    
     NSString *imuserid = [[NSUserDefaults standardUserDefaults]objectForKey:@"imuserid"];
     NSString *imtk = [[NSUserDefaults standardUserDefaults]objectForKey:@"imtk"];
     NSString *gdsessionid = [[NSUserDefaults standardUserDefaults]objectForKey:@"gdsessionid"];
@@ -118,6 +120,7 @@
     [postParam setObject:gdsessionid forKey:@"gdsessionid"];
     [postParam setObject:imtk forKey:@"imtk"];
     [postParam setObject:idnumber forKey:@"idnumber"];
+    NSLog(@"post param = %@",postParam);
     NSString *urlStr = @"http://www.dlczjf.com/gdvrtest/fetchRecevier2.do";
     [self.flowcManager POST:urlStr parameters:postParam success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSData *data = (NSData*)responseObject;

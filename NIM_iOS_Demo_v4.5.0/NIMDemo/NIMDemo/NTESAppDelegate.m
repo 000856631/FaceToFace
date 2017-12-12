@@ -193,8 +193,9 @@ NSString *NTESNotificationLogout = @"NTESNotificationLogout";
         
         [[[NIMSDK sharedSDK] loginManager] autoLogin:loginData];
         [[NTESServiceManager sharedManager] start];
-        NTESMainTabController *mainTab = [[NTESMainTabController alloc] initWithNibName:nil bundle:nil];
-        self.window.rootViewController = mainTab;
+        SSAppointmentVC *vc = [[SSAppointmentVC alloc]init];
+        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
+        self.window.rootViewController = nav;
     }
     else
     {

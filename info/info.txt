@@ -12,7 +12,20 @@ https://netease.im/im-sdk-demo?solutionType=0#solution
 13711111111
 111111
 
+
+===============
 13911111111
 111111
 
 
+ba444e4b5b0c82ed08646cf83fd375c2
+
+NTESVideoChatViewController继承NTESNetChatViewController
+NTESNetChatViewController里面发起视频聊天的请求
+和receiverid 、busino 什么关系？
+- (void)start:(NSArray<NSString *> *)callees
+         type:(NIMNetCallMediaType)type
+       option:(NIMNetCallOption *)option
+   completion:(NIMNetCallStartHandler)completion
+
+修改密码的界面要自己做咯？
