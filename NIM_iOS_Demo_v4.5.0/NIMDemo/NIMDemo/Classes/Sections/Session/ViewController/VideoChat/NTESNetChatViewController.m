@@ -170,14 +170,62 @@ NTES_FORBID_INTERACTIVE_POP
         });
     }
 }
+-(NSString *)convertToJsonData:(NSDictionary *)dict
 
+{
+    
+    NSError *error;
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:&error];
+    
+    NSString *jsonString;
+    
+    if (!jsonData) {
+        
+        NSLog(@"%@",error);
+        
+    }else{
+        
+        jsonString = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
+        
+    }
+    
+    NSMutableString *mutStr = [NSMutableString stringWithString:jsonString];
+    
+    NSRange range = {0,jsonString.length};
+    
+    //去掉字符串中的空格
+    
+    [mutStr replaceOccurrencesOfString:@" " withString:@"" options:NSLiteralSearch range:range];
+    
+    NSRange range2 = {0,mutStr.length};
+    
+    //去掉字符串中的换行符
+    
+    [mutStr replaceOccurrencesOfString:@"\n" withString:@"" options:NSLiteralSearch range:range2];
+    
+    return mutStr;
+    
+}
 - (void)doStartByCaller
 {
     self.callInfo.isStart = YES;
     NSArray *callees = [NSArray arrayWithObjects:self.callInfo.callee, nil];
     
     NIMNetCallOption *option = [[NIMNetCallOption alloc] init];
-    option.extendMessage = @"音视频请求扩展信息";
+    NSMutableDictionary *dit = [[NSMutableDictionary alloc]init];
+    NSString *busino = [[NSUserDefaults standardUserDefaults]objectForKey:@"busino"];
+    NSString *idnumber = [[NSUserDefaults standardUserDefaults]objectForKey:@"idnumber"];
+    NSString *latitude = [[NSUserDefaults standardUserDefaults]objectForKey:@"latitude"];
+    NSString *longitude = [[NSUserDefaults standardUserDefaults]objectForKey:@"longitude"];
+    NSString *address = [[NSUserDefaults standardUserDefaults]objectForKey:@"address"];
+    [dit setObject:busino forKey:@"busino"];
+    [dit setObject:idnumber forKey:@"idnumber"];
+    [dit setObject:latitude forKey:@"latitude"];
+    [dit setObject:longitude forKey:@"longitude"];
+    [dit setObject:address forKey:@"address"];
+    
+    option.extendMessage = [self convertToJsonData:dit];
     option.apnsContent = [NSString stringWithFormat:@"%@请求", self.callInfo.callType == NIMNetCallTypeAudio ? @"网络通话" : @"视频聊天"];
     option.apnsSound = @"video_chat_tip_receiver.aac";
     [self fillUserSetting:option];

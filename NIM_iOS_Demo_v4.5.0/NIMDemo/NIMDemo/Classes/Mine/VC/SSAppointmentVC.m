@@ -12,6 +12,9 @@
 #import "NTESSettingViewController.h"
 #import "AFNetworking.h"
 #import "SVProgressHUD.h"
+#import "NTESVideoChatViewController.h"
+#import "TZLocationManager.h"
+#import <AddressBookUI/AddressBookUI.h>
 @interface SSAppointmentVC ()
 @property(nonatomic,strong) UILabel *redLabel;
 @property(nonatomic,strong) UILabel *smallLabel;
@@ -110,7 +113,7 @@
     NSMutableDictionary *postParam = [[NSMutableDictionary alloc]init];
     _usernameTextField.text = @"44150908198005231231";
     NSString *idnumber = _usernameTextField.text;
-    
+    [[NSUserDefaults standardUserDefaults]setObject:idnumber forKey:@"idnumber"];
     NSString *imuserid = [[NSUserDefaults standardUserDefaults]objectForKey:@"imuserid"];
     NSString *imtk = [[NSUserDefaults standardUserDefaults]objectForKey:@"imtk"];
     NSString *gdsessionid = [[NSUserDefaults standardUserDefaults]objectForKey:@"gdsessionid"];
@@ -132,6 +135,18 @@
         //            imuserid = 13711111111;
         //            retcode = 00000;
         //            retmsg = "";
+        NSString *busino = [dit objectForKey:@"busino"];
+        [[NSUserDefaults standardUserDefaults]setObject:busino forKey:@"busino"];
+        NSString *receiverid = [dit objectForKey:@"receiverid"];
+        NTESVideoChatViewController *vc = [[NTESVideoChatViewController alloc] initWithCallee:receiverid];
+        CATransition *transition = [CATransition animation];
+        transition.duration = 0.25;
+        transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault];
+        transition.type = kCATransitionPush;
+        transition.subtype = kCATransitionFromTop;
+        [self.navigationController.view.layer addAnimation:transition forKey:nil];
+        self.navigationController.navigationBarHidden = YES;
+        [self.navigationController pushViewController:vc animated:NO];
         [SVProgressHUD dismiss];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"postError %@",error);
@@ -141,8 +156,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor whiteColor]];
+    __weak SSAppointmentVC *wself = self;
+    [[TZLocationManager manager] startLocationWithGeocoderBlock:^(NSArray *geocoderArray) {
+        NSLog(@"geocoderArray = %@",geocoderArray);
+        
+        CLPlacemark *mark = [geocoderArray lastObject];
+        NSString * address  = [wself nameForPlaceMark:mark];
+        
+        NSString *latitude = [NSString stringWithFormat:@"%lf",mark.location.coordinate.latitude];
+         NSString *longitude = [NSString stringWithFormat:@"%lf",mark.location.coordinate.longitude];
+        [[NSUserDefaults standardUserDefaults]setObject:address forKey:@"address"];
+        [[NSUserDefaults standardUserDefaults]setObject:latitude forKey:@"latitude"];
+        [[NSUserDefaults standardUserDefaults]setObject:longitude forKey:@"longitude"];
+        NSLog(@"获取的地址:%@ 经度：%@，纬度:%@",address,latitude,longitude);
+        
+    }];
     [self updateViewConstraints];
     // Do any additional setup after loading the view.
+}
+- (NSString *)nameForPlaceMark: (CLPlacemark *)mark
+{
+    NSString *name = ABCreateStringWithAddressDictionary(mark.addressDictionary,YES);
+    unichar characters[1] = {0x200e};   //format之后会出现这个诡异的不可见字符，在android端显示会很诡异，需要去掉
+    NSString *invalidString = [[NSString alloc]initWithCharacters:characters length:1];
+    NSString *formattedName =  [[name stringByReplacingOccurrencesOfString:@"\n" withString:@" "]
+                                stringByReplacingOccurrencesOfString:invalidString withString:@""];
+    return formattedName;
 }
 -(void)viewWillAppear:(BOOL)animated
 {

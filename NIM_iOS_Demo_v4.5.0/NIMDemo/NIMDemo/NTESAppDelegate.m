@@ -42,7 +42,11 @@ NSString *NTESNotificationLogout = @"NTESNotificationLogout";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-
+//统一设置导航栏
+    [UINavigationBar appearance].titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont systemFontOfSize:17]};
+    [UINavigationBar appearance].backgroundColor = [UIColor colorWithRed:177.0/255 green:63.0/255 blue:65.0/255 alpha:1];
+    [UINavigationBar appearance].barTintColor = [UIColor colorWithRed:177.0/255 green:63.0/255 blue:65.0/255 alpha:1];
+      [UINavigationBar appearance].translucent = NO;
     [self setupNIMSDK];
     [self setupServices];
     [self registerPushService];

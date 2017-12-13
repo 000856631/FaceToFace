@@ -29,6 +29,7 @@
 #import "NTESNetDetectViewController.h"
 #import "NTESSessionUtil.h"
 #import "JRMFHeader.h"
+#import "SSChangeSecretVC.h"
 
 @interface NTESSettingViewController ()<NIMUserManagerDelegate>
 
@@ -108,8 +109,8 @@
                           HeaderTitle:@"",
                           RowContent :@[
                                   @{
-                                      Title         : @"我的钱包",
-                                      CellAction    : @"onTouchMyWallet:",
+                                      Title         : @"登录密码修改",
+                                      CellAction    : @"onTouchChangeSecret:",
                                       ShowAccessory : @(YES),
                                       },
                                   ],
@@ -117,40 +118,6 @@
                        @{
                           HeaderTitle:@"",
                           RowContent :@[
-                                           @{
-                                              Title      :@"消息提醒",
-                                              DetailTitle:disableRemoteNotification ? @"未开启" : @"已开启",
-                                            },
-                                        ],
-                          FooterTitle:@"在iPhone的“设置- 通知中心”功能，找到应用程序“云信”，可以更改云信新消息提醒设置"
-                        },
-                       @{
-                          HeaderTitle:@"",
-                          RowContent :@[
-                                       @{
-                                          Title      :@"免打扰",
-                                          DetailTitle:enableNoDisturbing ? [NSString stringWithFormat:@"%@到%@",noDisturbingStart,noDisturbingEnd] : @"未开启",
-                                          CellAction :@"onActionNoDisturbingSetting:",
-                                          ShowAccessory : @(YES)
-                                        },
-                                  ],
-                          FooterTitle:@""
-                        },
-                       @{
-                          HeaderTitle:@"",
-                          RowContent :@[
-                                        @{
-                                          Title      :@"查看日志",
-                                          CellAction :@"onTouchShowLog:",
-                                          },
-                                        @{
-                                            Title      :@"上传日志",
-                                            CellAction :@"onTouchUploadLog:",
-                                            },
-                                        @{
-                                            Title      :customNotifyText,
-                                            CellAction :@"onTouchCustomNotify:",
-                                          },
                                         @{
                                             Title      :@"音视频网络探测",
                                             CellAction :@"onTouchNetDetect:",
@@ -249,12 +216,10 @@
     }];
 }
 
-- (void)onTouchMyWallet:(id)sender
+- (void)onTouchChangeSecret:(id)sender
 {
-    JrmfWalletSDK * jrmf = [[JrmfWalletSDK alloc] init];
-    NSString *userId = [[NIMSDK sharedSDK].loginManager currentAccount];
-    NIMKitInfo *userInfo = [[NIMKit sharedKit] infoByUser:userId option:nil];
-    [jrmf doPresentJrmfWalletPageWithBaseViewController:self userId:userId userName:userInfo.showName userHeadLink:userInfo.avatarUrlString thirdToken:[JRMFSington GetPacketSington].JrmfThirdToken];
+    SSChangeSecretVC *vc = [[SSChangeSecretVC alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)onTouchCustomNotify:(id)sender{

@@ -29,3 +29,14 @@ NTESNetChatViewController里面发起视频聊天的请求
    completion:(NIMNetCallStartHandler)completion
 
 修改密码的界面要自己做咯？
+
+2017-12-12 20:00:34.563628+0800 NIM[17205:438592] 领取返回的dit = {
+    busino = 2017110100001;
+    receiverid = 13811111111;
+    retcode = 00000;
+    retmsg = "";
+}
+
+<__NSArrayM 0x17425c740>(
+建华路21号, 中国广东省广州市天河区建华路21号 @ <+23.12173080,+113.37294100> +/- 100.00m, region CLCircularRegion (identifier:'<+23.12173050,+113.37294150> radius 49.24', center:<+23.12173050,+113.37294150>, radius:49.24m)
+)

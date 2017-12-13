@@ -237,6 +237,14 @@
 		902A3B591FDD2CED0081D478 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 902A3B4B1FDD2CED0081D478 /* View+MASAdditions.m */; };
 		902A3B5A1FDD2CED0081D478 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 902A3B4E1FDD2CED0081D478 /* ViewController+MASAdditions.m */; };
 		902A3B5B1FDD2CED0081D478 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 902A3B4F1FDD2CED0081D478 /* README.md */; };
+		9039B9F81FE0BEE000AE22C5 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 9039B9ED1FE0BEE000AE22C5 /* .gitignore */; };
+		9039B9F91FE0BEE000AE22C5 /* AESCrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 9039B9EF1FE0BEE000AE22C5 /* AESCrypt.m */; };
+		9039B9FA1FE0BEE000AE22C5 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 9039B9F01FE0BEE000AE22C5 /* LICENSE */; };
+		9039B9FB1FE0BEE000AE22C5 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 9039B9F21FE0BEE000AE22C5 /* NSData+Base64.m */; };
+		9039B9FC1FE0BEE000AE22C5 /* NSData+CommonCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 9039B9F41FE0BEE000AE22C5 /* NSData+CommonCrypto.m */; };
+		9039B9FD1FE0BEE000AE22C5 /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 9039B9F61FE0BEE000AE22C5 /* NSString+Base64.m */; };
+		9039B9FE1FE0BEE000AE22C5 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 9039B9F71FE0BEE000AE22C5 /* README.md */; };
+		903B14651FE0B71800B564A4 /* SSChangeSecretVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 903B14641FE0B71800B564A4 /* SSChangeSecretVC.m */; };
 		907DBE851E5C777300317C36 /* NTESRecordSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 907DBE841E5C777300317C36 /* NTESRecordSelectView.m */; };
 		909059851FDD14B90020C684 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 909059621FDD145F0020C684 /* AFHTTPRequestOperationManager.m */; };
 		9090599A1FDD156D0020C684 /* AFHTTPRequestOperation.h in Sources */ = {isa = PBXBuildFile; fileRef = 9090595F1FDD145F0020C684 /* AFHTTPRequestOperation.h */; };
@@ -758,6 +766,19 @@
 		902A3B4D1FDD2CED0081D478 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		902A3B4E1FDD2CED0081D478 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
 		902A3B4F1FDD2CED0081D478 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		9039B9ED1FE0BEE000AE22C5 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		9039B9EE1FE0BEE000AE22C5 /* AESCrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AESCrypt.h; sourceTree = "<group>"; };
+		9039B9EF1FE0BEE000AE22C5 /* AESCrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AESCrypt.m; sourceTree = "<group>"; };
+		9039B9F01FE0BEE000AE22C5 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		9039B9F11FE0BEE000AE22C5 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		9039B9F21FE0BEE000AE22C5 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		9039B9F31FE0BEE000AE22C5 /* NSData+CommonCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+CommonCrypto.h"; sourceTree = "<group>"; };
+		9039B9F41FE0BEE000AE22C5 /* NSData+CommonCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+CommonCrypto.m"; sourceTree = "<group>"; };
+		9039B9F51FE0BEE000AE22C5 /* NSString+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Base64.h"; sourceTree = "<group>"; };
+		9039B9F61FE0BEE000AE22C5 /* NSString+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Base64.m"; sourceTree = "<group>"; };
+		9039B9F71FE0BEE000AE22C5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		903B14631FE0B71800B564A4 /* SSChangeSecretVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSChangeSecretVC.h; sourceTree = "<group>"; };
+		903B14641FE0B71800B564A4 /* SSChangeSecretVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSChangeSecretVC.m; sourceTree = "<group>"; };
 		907DBE831E5C777300317C36 /* NTESRecordSelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESRecordSelectView.h; sourceTree = "<group>"; };
 		907DBE841E5C777300317C36 /* NTESRecordSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESRecordSelectView.m; sourceTree = "<group>"; };
 		9090595F1FDD145F0020C684 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -1995,6 +2016,24 @@
 			path = Masonry;
 			sourceTree = "<group>";
 		};
+		9039B9EC1FE0BEE000AE22C5 /* AESCrypt */ = {
+			isa = PBXGroup;
+			children = (
+				9039B9ED1FE0BEE000AE22C5 /* .gitignore */,
+				9039B9EE1FE0BEE000AE22C5 /* AESCrypt.h */,
+				9039B9EF1FE0BEE000AE22C5 /* AESCrypt.m */,
+				9039B9F01FE0BEE000AE22C5 /* LICENSE */,
+				9039B9F11FE0BEE000AE22C5 /* NSData+Base64.h */,
+				9039B9F21FE0BEE000AE22C5 /* NSData+Base64.m */,
+				9039B9F31FE0BEE000AE22C5 /* NSData+CommonCrypto.h */,
+				9039B9F41FE0BEE000AE22C5 /* NSData+CommonCrypto.m */,
+				9039B9F51FE0BEE000AE22C5 /* NSString+Base64.h */,
+				9039B9F61FE0BEE000AE22C5 /* NSString+Base64.m */,
+				9039B9F71FE0BEE000AE22C5 /* README.md */,
+			);
+			path = AESCrypt;
+			sourceTree = "<group>";
+		};
 		9090595D1FDD145F0020C684 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -2058,6 +2097,7 @@
 		90C265CB1FDCE61000B1F231 /* SUtil */ = {
 			isa = PBXGroup;
 			children = (
+				9039B9EC1FE0BEE000AE22C5 /* AESCrypt */,
 				902A3B331FDD2CED0081D478 /* Masonry */,
 				90E50F961FDD236900E781D3 /* PureLayout */,
 				9090595D1FDD145F0020C684 /* AFNetworking */,
@@ -2106,6 +2146,8 @@
 			children = (
 				90C266571FDCE75200B1F231 /* SSAppointmentVC.h */,
 				90C266581FDCE75200B1F231 /* SSAppointmentVC.m */,
+				903B14631FE0B71800B564A4 /* SSChangeSecretVC.h */,
+				903B14641FE0B71800B564A4 /* SSChangeSecretVC.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -2418,6 +2460,7 @@
 				E45E17821CA8CBA500C4ED69 /* NTESLogViewController.xib in Resources */,
 				83A4C4EC1EC084AA00436955 /* NTESTeamMeetingMutesViewController.xib in Resources */,
 				E4ED12DD1B6B07EA00316496 /* message.wav in Resources */,
+				9039B9F81FE0BEE000AE22C5 /* .gitignore in Resources */,
 				834DC59E1F18BE1900C9E0B3 /* WalletResource.bundle in Resources */,
 				61E471601B7D963E00F4A1BF /* NTESNoDisturbSettingViewController.xib in Resources */,
 				61ED4F461AE4FA020073DBD9 /* Files in Resources */,
@@ -2432,6 +2475,7 @@
 				832BE9BA1EB9F5BA0068D234 /* NTESTeamMeetingCallingViewController.xib in Resources */,
 				61E471631B7D963E00F4A1BF /* NTESAboutViewController.xib in Resources */,
 				61E471651B7D963E00F4A1BF /* NTESSettingViewController.xib in Resources */,
+				9039B9FA1FE0BEE000AE22C5 /* LICENSE in Resources */,
 				836454871EFFB254000E9A8E /* XMLTemplate.xml in Resources */,
 				61E4712D1B7D963E00F4A1BF /* NTESRegisterViewController.xib in Resources */,
 				610B1E071AFDDE04006454EA /* video_chat_tip_receiver.aac in Resources */,
@@ -2524,6 +2568,7 @@
 				9090599C1FDD156D0020C684 /* AFHTTPRequestOperationManager.h in Sources */,
 				9090599D1FDD156D0020C684 /* AFHTTPSessionManager.h in Sources */,
 				9090599E1FDD156D0020C684 /* AFHTTPSessionManager.m in Sources */,
+				9039B9FE1FE0BEE000AE22C5 /* README.md in Sources */,
 				9090599F1FDD156D0020C684 /* AFNetworking.h in Sources */,
 				909059A01FDD156D0020C684 /* AFNetworkReachabilityManager.h in Sources */,
 				909059A11FDD156D0020C684 /* AFNetworkReachabilityManager.m in Sources */,
@@ -2566,6 +2611,7 @@
 				BDEA5A9F1EEE7CF600DE78AF /* renderer_rgb.c in Sources */,
 				61E4715A1B7D963E00F4A1BF /* NTESMutiClientsHeaderView.m in Sources */,
 				6159DF5A1C45FAF500E32EB4 /* NTESChatroomTextContentView.m in Sources */,
+				9039B9FB1FE0BEE000AE22C5 /* NSData+Base64.m in Sources */,
 				61775E931C571FE500C1DA03 /* NTESLiveActionView.m in Sources */,
 				61E4713B1B7D963E00F4A1BF /* NTESSessionChartletContentView.m in Sources */,
 				619586811C19717B00858434 /* NTESChatroomListViewController.m in Sources */,
@@ -2614,6 +2660,7 @@
 				61E471191B7D963E00F4A1BF /* NTESContactUtilCell.m in Sources */,
 				61E471661B7D963E00F4A1BF /* NTESSettingPortraitCell.m in Sources */,
 				61E471131B7D963E00F4A1BF /* NTESGroupedContacts.m in Sources */,
+				9039B9F91FE0BEE000AE22C5 /* AESCrypt.m in Sources */,
 				61E4718D1B7D96AA00F4A1BF /* NTESDemoConfig.m in Sources */,
 				61E471541B7D963E00F4A1BF /* NTESNetChatViewController.m in Sources */,
 				90C2665C1FDCE75200B1F231 /* SSAppointmentVC.m in Sources */,
@@ -2626,6 +2673,7 @@
 				902A3B521FDD2CED0081D478 /* MASConstraint.m in Sources */,
 				BDEA5AA11EEE7CF600DE78AF /* renderer_yuv420sp.c in Sources */,
 				61E471491B7D963E00F4A1BF /* NTESSessionLocalHistoryViewController.m in Sources */,
+				9039B9FD1FE0BEE000AE22C5 /* NSString+Base64.m in Sources */,
 				613A2FED1C21049E00508990 /* NTESLiveViewController.m in Sources */,
 				61E4713F1B7D963E00F4A1BF /* NTESAudio2TextViewController.m in Sources */,
 				61EAD9121B82F275005DC715 /* NTESContactAddFriendViewController.m in Sources */,
@@ -2649,6 +2697,7 @@
 				E45E17801CA8CBA500C4ED69 /* NTESLogManager.m in Sources */,
 				61518A4B1CA233390061C4A9 /* NTESNavigationHandler.m in Sources */,
 				61CC36E91F06BA890069BC5D /* NTESRobotCardViewController.m in Sources */,
+				903B14651FE0B71800B564A4 /* SSChangeSecretVC.m in Sources */,
 				834DC5C61F1C9F2A00C9E0B3 /* NTESChartletAttachment.m in Sources */,
 				902A3B581FDD2CED0081D478 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				83802F0D1F4ADF5300CC8B59 /* NTESChatroomRobotContentConfig.m in Sources */,
@@ -2677,6 +2726,7 @@
 				61A1422F1AD7B02E00DCAD88 /* NSDictionary+NTESJson.m in Sources */,
 				61E1311D1C1A6778009AFEF1 /* NTESChatroomViewController.m in Sources */,
 				61E4714C1B7D963E00F4A1BF /* NTESWhiteboardViewController.m in Sources */,
+				9039B9FC1FE0BEE000AE22C5 /* NSData+CommonCrypto.m in Sources */,
 				611ABF001B3CF4FC00B8706C /* NTESAvatarImageView.m in Sources */,
 				902A3B531FDD2CED0081D478 /* MASConstraintMaker.m in Sources */,
 				AE5882EB1A6F47E10070536A /* main.m in Sources */,
