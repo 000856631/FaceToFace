@@ -174,7 +174,7 @@ NTES_USE_CLEAR_BAR
     [postParam setObject:@"2" forKey:@"apptype"];
     [postParam setObject:loginAccount forKey:@"userid"];
     [postParam setObject:loginToken forKey:@"userpass"];
-    NSString *urlStr = @"http://www.dlczjf.com/gdvrtest/login2.do";
+    NSString *urlStr = @"http://www.dlczjf.com/gdvr/login2.do";
     [self.flowcManager POST:urlStr parameters:postParam success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSData *data = (NSData*)responseObject;
         NSDictionary *dit = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];

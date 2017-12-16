@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NIMDemo/NTESAppDelegate.m"
-            timestampString = "534841143.666072"
+            timestampString = "535042531.774453"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "50"
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NIMDemo/Classes/Mine/VC/SSAppointmentVC.m"
-            timestampString = "534775235.617118"
+            timestampString = "535042531.774565"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "-beginConnect"
             landmarkType = "7">
             <Locations>
@@ -42,7 +42,7 @@
                   moduleName = "NIM"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/samel/Documents/SSCode/%E4%B8%9A%E4%BD%99%E9%A1%B9%E7%9B%AE/FaceToFace/NIM_iOS_Demo_v4.5.0/NIMDemo/NIMDemo/Classes/Mine/VC/SSAppointmentVC.m"
-                  timestampString = "534840164.01395"
+                  timestampString = "534930810.096196"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "128"
@@ -57,7 +57,7 @@
                   moduleName = "NIM"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/samel/Documents/SSCode/%E4%B8%9A%E4%BD%99%E9%A1%B9%E7%9B%AE/FaceToFace/NIM_iOS_Demo_v4.5.0/NIMDemo/NIMDemo/Classes/Mine/VC/SSAppointmentVC.m"
-                  timestampString = "534840164.0162"
+                  timestampString = "534930810.10011"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "128"
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NIMDemo/Classes/Mine/VC/SSAppointmentVC.m"
-            timestampString = "534775235.617193"
+            timestampString = "535042531.774646"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
             landmarkName = "-beginConnect"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NIMDemo/Classes/Mine/VC/SSAppointmentVC.m"
-            timestampString = "534775235.617254"
+            timestampString = "535042531.774719"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -106,12 +106,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NIMDemo/Classes/Mine/VC/SSChangeSecretVC.m"
-            timestampString = "534841143.666556"
+            timestampString = "535042531.774797"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "154"
             endingLineNumber = "154"
             landmarkName = "-changePasswordProcess"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NIMDemo/Classes/Mine/VC/SSChangeSecretVC.m"
+            timestampString = "535042531.774908"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "-changePasswordProcess"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NIMDemo/Classes/SUtil/AESCrypt/NSData+CommonCrypto.m"
+            timestampString = "534930809.174997"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "424"
+            endingLineNumber = "424"
+            landmarkName = "-dataEncryptedUsingAlgorithm:key:initializationVector:options:error:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NIMDemo/Classes/SUtil/AESCrypt/NSData+CommonCrypto.m"
+            timestampString = "534930836.280006"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "430"
+            endingLineNumber = "430"
+            landmarkName = "-dataEncryptedUsingAlgorithm:key:initializationVector:options:error:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NIMDemo/Classes/SUtil/AESCrypt/NSData+CommonCrypto.m"
+            timestampString = "534930837.772489"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "426"
+            endingLineNumber = "426"
+            landmarkName = "-dataEncryptedUsingAlgorithm:key:initializationVector:options:error:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

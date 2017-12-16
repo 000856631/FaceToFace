@@ -18,7 +18,7 @@
    [super viewDidLoad];
     self.navigationItem.title = @"关于";
     NSString *version = [NIMSDK sharedSDK].sdkVersion;
-   self.versionLabel.text = [NSString stringWithFormat:@"版本号：%@",version];
+   self.versionLabel.text = [NSString stringWithFormat:@"版本号：%@",@"1.0.0"];
 }
 
 

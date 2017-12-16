@@ -7,7 +7,8 @@
 //
 
 #import "NTESDemoConfig.h"
-
+#define Key_shengchan @"6c1a2c228091191b0da07ef85ec2d203"
+#define Key_dev @"8354aa2bfec3f70a6ab851ac51e894df"
 @interface NTESDemoConfig ()
 
 @end
@@ -27,7 +28,7 @@
 {
     if (self = [super init])
     {
-        _appKey = @"8354aa2bfec3f70a6ab851ac51e894df";
+        _appKey = Key_shengchan;
         _apiURL = @"https://app.netease.im/api";
         _apnsCername = @"ENTERPRISE";
         _pkCername = @"DEMO_PUSH_KIT";

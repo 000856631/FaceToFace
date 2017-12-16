@@ -12,6 +12,7 @@
 #import "NTESSettingViewController.h"
 #import "AFNetworking.h"
 #import "SVProgressHUD.h"
+#import "UIView+Toast.h"
 #import "NTESVideoChatViewController.h"
 #import "TZLocationManager.h"
 #import <AddressBookUI/AddressBookUI.h>
@@ -109,9 +110,14 @@
 }
 -(void)beginConnect
 {
+    if([_usernameTextField.text isEqualToString:@""])
+    {
+        [self.view makeToast:@"请输入链接号码"];
+        return;
+    }
     [SVProgressHUD show];
     NSMutableDictionary *postParam = [[NSMutableDictionary alloc]init];
-    _usernameTextField.text = @"44150908198005231231";
+//    _usernameTextField.text = @"44150908198005231231";
     NSString *idnumber = _usernameTextField.text;
     [[NSUserDefaults standardUserDefaults]setObject:idnumber forKey:@"idnumber"];
     NSString *imuserid = [[NSUserDefaults standardUserDefaults]objectForKey:@"imuserid"];
@@ -124,7 +130,7 @@
     [postParam setObject:imtk forKey:@"imtk"];
     [postParam setObject:idnumber forKey:@"idnumber"];
     NSLog(@"post param = %@",postParam);
-    NSString *urlStr = @"http://www.dlczjf.com/gdvrtest/fetchRecevier2.do";
+    NSString *urlStr = @"http://www.dlczjf.com/gdvr/fetchRecevier2.do";
     [self.flowcManager POST:urlStr parameters:postParam success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSData *data = (NSData*)responseObject;
         NSDictionary *dit = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];

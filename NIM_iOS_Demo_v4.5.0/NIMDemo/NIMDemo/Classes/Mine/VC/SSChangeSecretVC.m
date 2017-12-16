@@ -11,8 +11,8 @@
 #import "AFNetworking.h"
 #import "SVProgressHUD.h"
 #import "UIView+Toast.h"
-#import "AESCrypt.h"
 #import "NSString+NTES.h"
+#import "NSString+AES.h"
 #define  BolderSize 0.5
 @interface SSChangeSecretVC()
 @property(nonatomic,strong) UITextField *oldSecret;
@@ -113,14 +113,14 @@
 }
 -(NSString*)encryptSign:(NSString*)text
 {
-    NSString *secretYinZi = @"gdvrios678912345";
-    NSString *rtnText = [AESCrypt encrypt:text password:secretYinZi];
+    
+    NSString *rtnText = [text aci_encryptWithAES];
     return rtnText;
 }
 -(NSString*)deEncryptSign:(NSString*)text
 {
-    NSString *secretYinZi = @"gdvrios678912345";
-    NSString *rtnText = [AESCrypt decrypt:text password:secretYinZi];
+    
+    NSString *rtnText = [text aci_decryptWithAES];
     return rtnText;
 }
 -(void)changePasswordProcess
@@ -148,7 +148,7 @@
     [postParam setObject:encryOldSecret forKey:@"oldpass"];
     [postParam setObject:encrytSecret forKey:@"newpass"];
     NSLog(@"post  param = %@",postParam);
-    NSString *urlStr = @"http://www.dlczjf.com/gdvrtest/fetchRecevier2.do";
+    NSString *urlStr = @"http://www.dlczjf.com/gdvr/updatePass2.do";
     [self.flowcManager POST:urlStr parameters:postParam success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSData *data = (NSData*)responseObject;
         NSDictionary *dit = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
@@ -159,6 +159,10 @@
         //            imuserid = 13711111111;
         //            retcode = 00000;
         //            retmsg = "";
+        if ([[dit objectForKey:@"retcode"]isEqualToString:@"00000"]) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        
         [SVProgressHUD dismiss];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"postError %@",error);
